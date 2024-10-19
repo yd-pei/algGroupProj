@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{lipsum}  
+\usepackage{cmbright}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{fancyvrb}
+
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=15mm,
+}
+
+
+\title{
+	Project 3 Dymamic Programming
+}
+ 
+\fancypagestyle{plain}{%  the preset of fancyhdr 
+    \fancyhf{} % clear all header and footer fields
+    %\fancyfoot[R]{\includegraphics[width=2cm]{KULEUVEN_GENT_RGB_LOGO.png}} %picture on bottom right
+    \fancyhead[L]{Project 3}
+    \fancyhead[R]{\today}
+}
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    %{\large \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\setlength{\headheight}{35pt}
+
+\begin{document}
+
+\maketitle
+
+\noindent\begin{tabular}{@{}ll}
+    Author:\\ & \textbf{Alex Zongo} (GWID)\\ & \textbf{Harsh Sharma} (GWID)\\ & \textbf{He Jiaying} (GWID)\\ & \textbf{Yiding Pei} G28608005 
+\end{tabular}
+
+\section{Problem Analysis}
+\subsection{Problem Description}
+    \textbf{Question 0}: Teleportation in Astro haunted galaxies
+    \noindent
+    \newline
+    You have a teleporter that can take you from galaxy i to galaxy j. Cost to teleport is given by c(i,j), which can be arbitrary. Some galaxies are “astro-haunted” – this is specified by a(i) which can be 0 or 1 (1 means that that galaxy is “astro-haunted”). Give a polynomial time algorithm that minimizes the cost of going from galaxy 1 to galaxy n, such that you pass through no more than k astro-haunted galaxies. (You can assume that galaxies 1 and n are not astro-haunted.)
+\subsection{Keys to the Solution}
+    This question is similar to \textit{All Pairs Shortest Path} Problem. We can use dynamic programming to solve it.
+\paragraph{Notation}
+    We use the notation: $D(i,j,m)$ to denote the length of the shortest path from i to j passing through a maximum of m astro-haunted galaxies. \\
+    As a degenerate case, we observe that $D(i,j,0)$ signifies the \textit{App Pairs Shortest Path} Problem between i and j.
+\paragraph{Proof of Optimality}
+
+\paragraph{Recurrence Relation}
+For the base case of $D(i,j,0)$, we can solve it as an APAS problem. Therefore, the recurrence relations can be writteen as follows:
+$$
+D^{\left(k\right)}\left(i,j,0\right) = min\left\{D^{\left(k-1\right)}\left(i,j,0\right),D^{\left(k-1\right)}\left(i,k,0\right)+D^{\left(k-1\right)}\left(k,j,0\right)\right\}
+$$
+For the general case of $D(i,j,m)$, we can write the recurrence relation as follows:
+$$
+D\left(i,j,m\right) = min\left\{D\left(i,z,m-1\right)+D\left(z,j,0\right)\right\},z \in \left\{all\, galaxies\right\}
+$$
+\paragraph{Pseudocode}
+
+\section{Theoretical Analysis}
+
+\section{Experimental Analysis}
+
+\section{Conclusions}
+
+\end{document}
