@@ -1,7 +1,7 @@
 '''
 Notation: D(i,j,m)
 
-1. When m = 0, D(i,j,0) = APAS(i,j)
+1. When m = 0, D(i,j,0) = APSP(i,j)
 2. When m > 0:
     For m = 1 to k
         For i = 1 to n
@@ -50,7 +50,7 @@ def MGTC(m:int,c:list,a:list)->list:
             passing through a maximum of m astro-haunted galaxies.
     '''
 
-    def APAS(d:list,i:int,j:int):
+    def APSP(d:list,i:int,j:int):
         '''
         All Pairs Shortest Path Algorithm
 
