@@ -33,11 +33,13 @@ def dataGenerator(n:int)->tuple[list,list]:
     '''
     return
 
-def MGTC(m:int,c:list,a:list)->list:
+def MGTC(i:int,j:int,m:int,c:list,a:list):
     '''
     Minimum Galaxies Travel Cost
 
     Input:
+        i: starting galaxy
+        j: ending galaxy
         m: the number of astro-haunted galaxies that can be passed through
         c (list[list[int/floats]]): 2 dimensional list of numbers
             representing the cost of travel between galaxies
@@ -45,18 +47,17 @@ def MGTC(m:int,c:list,a:list)->list:
             a[i] can be 0 or 1 (1 means that that galaxy is “astro-haunted”)
 
     Output:
-        D (list[list[list[int/floats]]]): 3 dimensional list of numbers
-            representing the minimum cost of travel between galaxies 
-            passing through a maximum of m astro-haunted galaxies.
+        minCost: the minimum cost of travel between galaxies i and j
     '''
 
-    def APSP(d:list,i:int,j:int):
+    def APSP(d:list,a:list,i:int,j:int):
         '''
         All Pairs Shortest Path Algorithm
 
         Input:
             d (list[list[int/floats]]): 2 dimensional list of numbers
                 representing the cost of travel between galaxies
+            a (list[int]): astro-haunted galaxies list
             i: starting galaxy
             j: ending galaxy
 
