@@ -12,6 +12,7 @@
 \usepackage{listings}
 \usepackage{booktabs}
 \usepackage{fancyvrb}
+\usepackage{amsmath}
 
 \geometry{
  a4paper,
@@ -70,13 +71,19 @@
 \paragraph{Proof of Optimality}
 
 \paragraph{Recurrence Relation}
-For the base case of $D(i,j,0)$, we can solve it as an APAS problem. Therefore, the recurrence relations can be writteen as follows:
+For the base case of $D(i,j,0)$, we can solve it as an APSP problem. Therefore, the recurrence relations can be writteen as follows:
 $$
-D^{\left(k\right)}\left(i,j,0\right) = min\left\{D^{\left(k-1\right)}\left(i,j,0\right),D^{\left(k-1\right)}\left(i,k,0\right)+D^{\left(k-1\right)}\left(k,j,0\right)\right\}
+D^{\left(k\right)}\left(i,j,0\right) =
+\left\{
+\begin{aligned}
+    min\left\{D^{\left(k-1\right)}\left(i,j,0\right),D^{\left(k-1\right)}\left(i,k,0\right)+D^{\left(k-1\right)}\left(k,j,0\right)\right\} & \left(if\,k\,is\,not\,astro-haunted\right) \\
+    D^{\left(k-1\right)}\left(i,j,0\right) & \left(if\,k\,is\,astro-haunted\right) \\
+\end{aligned}
+\right.
 $$
 For the general case of $D(i,j,m)$, we can write the recurrence relation as follows:
 $$
-D\left(i,j,m\right) = min\left\{D\left(i,z,m-1\right)+D\left(z,j,0\right)\right\},z \in \left\{all\, galaxies\right\}
+D\left(i,j,m\right) = min\left\{D\left(i,z,m-a\left[z\right]\right)+D\left(z,j,0\right)\right\},z \in \left\{all\, galaxies\right\}
 $$
 \paragraph{Pseudocode}
 
