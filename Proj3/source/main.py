@@ -1,14 +1,3 @@
-'''
-Notation: D(i,j,m)
-
-1. When m = 0, D(i,j,0) = APSP(i,j)
-2. When m > 0:
-    For m = 1 to k
-        For i = 1 to n
-            For j = 1 to n
-            Calculate D(i,j,m) = min { D (i,z,m-1) + D (z,j,0) for all z}
-'''
-
 
 import matplotlib.pyplot as plt
 import timeit
