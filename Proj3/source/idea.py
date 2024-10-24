@@ -30,7 +30,7 @@ def generate_data(n:int, max_cost:int=100):
     a[1] = 0
     return c, a
 
-def MGTC(N:int, C:list, a:list, k:int):
+def MGTC(n:int, C:list, a:list, k:int):
     """Minimum Galaxy Teleportation Cost
         to reach galaxy n from galaxy 1
     Args:

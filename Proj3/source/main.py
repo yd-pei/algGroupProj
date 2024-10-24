@@ -1,64 +1,19 @@
-
-import matplotlib.pyplot as plt
+import idea
+import priority_queue
+import os
 import timeit
 import functools
 import csv
-import random
-import os
 
-def dataGenerator(n:int)->tuple[list,list]:
-    '''
-    Generate random input data for the problem.
+def consistency_verification():
+    """Check the consistency of the two algorithms
+    """
+    n = 10
+    C, a = idea.generate_data(n)
+    k = 2
+    print(C,a)
+    print(idea.MGTC(n, C, a, k))
+    print(priority_queue.heap_least_cost(n, C, a, k))
 
-    Input:
-        n: number of galaxies
+consistency_verification()
 
-    Output:
-        Should the data be floats or integers?
-        c (list[list[int/floats]]): 2 dimensional list of numbers
-            representing the cost of travel between galaxies
-        a (list[int]): list of integers
-            a[i] can be 0 or 1 (1 means that that galaxy is “astro-haunted”)
-    '''
-    return
-
-def MGTC(i:int,j:int,m:int,c:list,a:list):
-    '''
-    Minimum Galaxies Travel Cost
-
-    Input:
-        i: starting galaxy
-        j: ending galaxy
-        m: the number of astro-haunted galaxies that can be passed through
-        c (list[list[int/floats]]): 2 dimensional list of numbers
-            representing the cost of travel between galaxies
-        a (list[int]): list of integers
-            a[i] can be 0 or 1 (1 means that that galaxy is “astro-haunted”)
-
-    Output:
-        minCost: the minimum cost of travel between galaxies i and j
-    '''
-
-    def APSP(d:list,a:list,i:int,j:int):
-        '''
-        All Pairs Shortest Path Algorithm
-
-        Input:
-            d (list[list[int/floats]]): 2 dimensional list of numbers
-                representing the cost of travel between galaxies
-            a (list[int]): astro-haunted galaxies list
-            i: starting galaxy
-            j: ending galaxy
-
-        Output:
-            d[i][j]: cost of travel between galaxies i and j
-        '''
-        return d[i][j]
-    
-
-    return
-
-
-
-if __name__ == '__main__':
-    print("Hello World")
