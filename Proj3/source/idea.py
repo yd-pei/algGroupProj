@@ -38,6 +38,8 @@ def MGTC(N:int, C:list, a:list, k:int):
         C (list): The teleportattion cost from i to j C[i][j]
         a (list): a[i] is astro-haunted or not - 1 or 0
         k (int): The maximum number of astro-haunted galxies allowed in the path
+    Returns:
+        min_cost (float): The minimum cost to reach galaxy n from galaxy 1 with at most k astro-haunted visited galaxies
     """
     # Base Case
     D = [[inf] * (k+1) for _ in range(n+1)]
@@ -58,7 +60,7 @@ if __name__ == '__main__':
     # Time complexity for varying n with fixed k
     times = []
     k = 3
-    ns = [10, 100, 1000, 10000]
+    ns = [5, 10, 25, 50, 100, 250, 500, 1000]
     for n in ns:
         c, a = generate_data(n)
         start_time = timeit.default_timer()
@@ -78,8 +80,8 @@ if __name__ == '__main__':
 
     # Time complexity for fixed n and various values of k
     times = []
-    n = 10000
-    ks = [10, 100, 500, 1000, 5000]
+    n = 1000
+    ks = [1, 5, 10, 25, 50, 100, 250]
     for k in ks:
         c, a = generate_data(n)
         start_time = timeit.default_timer()
