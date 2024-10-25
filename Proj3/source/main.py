@@ -47,7 +47,7 @@ def timer():
     # complexity n with k fixed
     times_n = []
     k = 3
-    ns = [5, 10, 25, 50, 100, 250, 500, 1000]
+    ns = [10, 25, 50, 100, 250, 500, 1000, 2500, 5000,10000]
     for n in ns:
         C, a = idea.generate_data(n)
         partial_pq = functools.partial(priority_queue.heap_least_cost, n, C, a, 3)
