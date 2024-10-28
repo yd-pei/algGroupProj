@@ -13,7 +13,7 @@ Project 3 & 4 members:
 
 ### Requirement
 
-- Proj3:
+- Proj3: python3
 
 ### Setup
 

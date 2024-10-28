@@ -1,4 +1,4 @@
-import idea
+import Proj3.source.DP as DP
 import priority_queue
 import os
 import timeit
@@ -10,10 +10,10 @@ def consistencyVerification():
     Check the consistency of the two algorithms
     """
     n = 10
-    C, a = idea.generate_data(n)
+    C, a = DP.generate_data(n)
     k = 2
     print(C,a)
-    print(idea.MGTC(n, C, a, k))
+    print(DP.MGTC(n, C, a, k))
     print(priority_queue.heap_least_cost(n, C, a, k))
 
 def timeCompare():
@@ -24,8 +24,8 @@ def timeCompare():
     times2 = []
     ns = [5, 10, 25, 50, 100, 250, 500, 1000]
     for n in ns:
-        C, a = idea.generate_data(n)
-        partial_alg1 = functools.partial(idea.MGTC, n, C, a, 3)
+        C, a = DP.generate_data(n)
+        partial_alg1 = functools.partial(DP.MGTC, n, C, a, 3)
         partial_alg2 = functools.partial(priority_queue.heap_least_cost, n, C, a, 3)
         duration1 = timeit.timeit(partial_alg1, number = 1)
         duration2 = timeit.timeit(partial_alg2, number = 1)
@@ -49,7 +49,7 @@ def timer():
     k = 3
     ns = [10, 25, 50, 100, 250, 500, 1000, 2500, 5000,10000]
     for n in ns:
-        C, a = idea.generate_data(n)
+        C, a = DP.generate_data(n)
         partial_pq = functools.partial(priority_queue.heap_least_cost, n, C, a, 3)
         duration_n = timeit.timeit(partial_pq, number = 1)
         times_n.append(duration_n)
@@ -72,7 +72,7 @@ def timer():
     n = 1000
     ks = [1, 5, 10, 25, 50, 100, 250]
     for k in ks:
-        C, a = idea.generate_data(n)
+        C, a = DP.generate_data(n)
         partial_pq = functools.partial(priority_queue.heap_least_cost, n, C, a, k)
         duration_k = timeit.timeit(partial_pq, number = 1)
         times_k.append(duration_k)
